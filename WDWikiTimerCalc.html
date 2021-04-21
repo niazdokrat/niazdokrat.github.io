@@ -1,0 +1,237 @@
+<html>
+<head>
+<style>
+table.minimalistBlack {
+  border: 3px solid #000000;
+  background-color: #FFF7ED;
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+table.minimalistBlack td, table.minimalistBlack th {
+  border: 1px solid #000000;
+  padding: 5px 4px;
+}
+table.minimalistBlack tbody td {
+  font-size: 13px;
+}
+table.minimalistBlack tr:nth-child(even) {
+  background: #D0E4F5;
+}
+table.minimalistBlack thead {
+  background: #000000;
+  background: -moz-linear-gradient(top, #404040 0%, #191919 66%, #000000 100%);
+  background: -webkit-linear-gradient(top, #404040 0%, #191919 66%, #000000 100%);
+  background: linear-gradient(to bottom, #404040 0%, #191919 66%, #000000 100%);
+  border-bottom: 3px solid #000000;
+}
+table.minimalistBlack thead th {
+  font-size: 15px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: center;
+}
+table.minimalistBlack tfoot {
+  font-size: 14px;
+  font-weight: bold;
+  color: #000000;
+  border-top: 3px solid #000000;
+}
+table.minimalistBlack tfoot td {
+  font-size: 14px;
+}
+.calcColumn {
+	width: 50px;
+	color: #B22222;
+	font-weight: bold;
+	font-size: 15px;
+	text-align: center;
+}
+.inputTimer {
+	width: 70px;
+	align: center;
+}
+.timCol {
+	width:100px;
+}
+.invCol {
+	width: 120px;
+	text-align: center;
+	align: center;
+}
+.calcCol {
+	align: center;
+}
+.total {
+	text-align: center;
+}
+.resetBtn {
+	text-align: center;
+	align: center;
+}
+</style>
+<script type="text/javascript">
+function calcTime(){
+
+	//convert all timers to minutes
+	var t1 = document.getElementById("2_1m").value * 1; // 1 min timers
+	var t2 = document.getElementById("2_3m").value * 3; // 3 min timers
+	var t3 = document.getElementById("2_15m").value * 15; // 15 min timers
+	var t4 = document.getElementById("2_30m").value * 30; // 30 min timers
+	var t5 = document.getElementById("2_1h").value * 60; // 1 hr timers
+	var t6 = document.getElementById("2_3h").value * 180; // 3 hr timers
+	var t7 = document.getElementById("2_12h").value * 60 * 12; // 12 hr timers
+	var t8 = document.getElementById("2_24h").value * 60 * 24; // 24 hr timers
+	var t9 = document.getElementById("2_48h").value * 60 * 48; // 48 hr timers
+	
+	//populate hour column
+	var tth;
+	var th =0;
+	
+	tth = t1/60;
+	th += tth;
+	document.getElementById("3_1m").innerHTML = tth.toFixed(2);
+	
+	tth = t2/60;
+	th += tth;
+	document.getElementById("3_3m").innerHTML = tth.toFixed(2);
+	
+	tth = t3/60;
+	th += tth;
+	document.getElementById("3_15m").innerHTML = tth.toFixed(2);
+	
+	tth = t4/60;
+	th += tth;
+	document.getElementById("3_30m").innerHTML = tth.toFixed(2);
+	
+	tth = t5/60;
+	th += tth;
+	document.getElementById("3_1h").innerHTML = tth.toFixed(2);
+	
+	tth = t6/60;
+	th += tth;
+	document.getElementById("3_3h").innerHTML = tth.toFixed(2);
+	
+	tth = t7/60;
+	th += tth;
+	document.getElementById("3_12h").innerHTML = tth.toFixed(2);
+	
+	tth = t8/60;
+	th += tth;
+	document.getElementById("3_24h").innerHTML = tth.toFixed(2);
+	
+	tth = t9/60;
+	th += tth;
+	document.getElementById("3_48h").innerHTML = tth.toFixed(2);
+	
+	//populate day column
+	var ttd;
+	var td =0;
+	
+	ttd = t1/60/24;
+	td += ttd;
+	document.getElementById("4_1m").innerHTML = ttd.toFixed(2);
+	
+	ttd = t2/60/24;
+	td += ttd;
+	document.getElementById("4_3m").innerHTML = ttd.toFixed(2);
+	
+	ttd = t3/60/24;
+	td += ttd;
+	document.getElementById("4_15m").innerHTML = ttd.toFixed(2);
+	
+	ttd = t4/60/24;
+	td += ttd;
+	document.getElementById("4_30m").innerHTML = ttd.toFixed(2);
+	ttd = t5/60/24;
+	td += ttd;
+	document.getElementById("4_1h").innerHTML = ttd.toFixed(2);
+	
+	ttd = t6/60/24;
+	td += ttd;
+	document.getElementById("4_3h").innerHTML = ttd.toFixed(2);
+	
+	ttd = t7/60/24;
+	td += ttd;
+	document.getElementById("4_12h").innerHTML = ttd.toFixed(2);
+	
+	ttd = t8/60/24;
+	td += ttd;
+	document.getElementById("4_24h").innerHTML = ttd.toFixed(2);
+	
+	ttd = t9/60/24;
+	td += ttd;
+	document.getElementById("4_48h").innerHTML = ttd.toFixed(2);
+	
+	//populate footers
+	var tt = (t1)+(t2/3)+(t3/15)+(t4/30)+(t5/60)+(t6/180)+(t7/(60*12))+(t8/(60*24))+(t9/(60*48));
+	document.getElementById("2_t").innerHTML = tt.toFixed(2) + " timers";
+	document.getElementById("3_t").innerHTML = th.toFixed(2) + " hours";
+	document.getElementById("4_t").innerHTML = td.toFixed(2) + " days";
+}
+
+function resetCalc(){
+	document.getElementById("2_1m").value = 0;
+	document.getElementById("2_3m").value = 0;
+	document.getElementById("2_15m").value = 0;
+	document.getElementById("2_30m").value = 0;
+	document.getElementById("2_1h").value = 0;
+	document.getElementById("2_3h").value = 0;
+	document.getElementById("2_12h").value = 0;
+	document.getElementById("2_24h").value = 0;
+	document.getElementById("2_48h").value = 0;
+	
+	//populate footers
+
+//	document.getElementById("2_t").innerHTML = tt.toFixed(2) + " timers";
+//	document.getElementById("3_t").innerHTML = th.toFixed(2) + " hours";
+//	document.getElementById("4_t").innerHTML = td.toFixed(2) + " days";
+	calcTime();
+}
+</script>
+</head>
+<body>
+	<table class="minimalistBlack">
+		<thead>
+			<tr>
+				<th class="timCol">Timers</th>
+				<th class="invCol">Inventory</th>
+				<th class="calcCol">Total Timers (hrs)</th>
+				<th class="calcCol">Total Timers (days)</th>
+			</tr>
+		</thead>		
+		<tbody>
+			<tr>
+				<td id="1_1m">1 min.</td><td class="invCol"><input class="inputTimer" type="number" id="2_1m" onchange="calcTime();" onkeyup="calcTime();" value="0" min="0" /></td><td id="3_1m" class="calcColumn"></td><td id="4_1m" class="calcColumn"></td></tr>
+			<tr>
+				<td id="1_3m">3 min.</td><td class="invCol"><input class="inputTimer" type="number" id="2_3m" onchange="calcTime();" onkeyup="calcTime();" value="0" min="0" /></td><td id="3_3m" class="calcColumn"></td><td id="4_3m" class="calcColumn"></td></tr>
+			<tr>
+				<td id="1_15m">15 min.</td><td class="invCol"><input class="inputTimer" type="number" id="2_15m" onchange="calcTime();" onkeyup="calcTime();" value="0" min="0" /></td><td id="3_15m" class="calcColumn"></td><td id="4_15m" class="calcColumn"></td></tr>
+			<tr>
+				<td id="1_30m">30 min.</td><td class="invCol"><input class="inputTimer" type="number" id="2_30m" onchange="calcTime();" onkeyup="calcTime();" value="0" min="0" /></td><td id="3_30m" class="calcColumn"></td><td id="4_30m" class="calcColumn"></td></tr>
+			<tr>
+				<td id="1_1h">1 hr.</td><td class="invCol"><input class="inputTimer" type="number" id="2_1h" onchange="calcTime();" onkeyup="calcTime();" value="0" min="0" /></td><td id="3_1h" class="calcColumn"></td><td id="4_1h" class="calcColumn"></td></tr>
+			<tr>
+				<td id="1_3h">3 hr.</td><td class="invCol"><input class="inputTimer" type="number" id="2_3h" onchange="calcTime();" onkeyup="calcTime();" value="0" min="0" /></td><td id="3_3h" class="calcColumn"></td><td id="4_3h" class="calcColumn"></td></tr>
+			<tr>
+				<td id="1_12h">12 hr.</td><td class="invCol"><input class="inputTimer" type="number" id="2_12h" onchange="calcTime();" onkeyup="calcTime();" value="0" min="0" /></td><td id="3_12h" class="calcColumn"></td><td id="4_12h" class="calcColumn"></td></tr>
+			<tr>
+				<td id="1_24h">24 hr.</td><td class="invCol"><input class="inputTimer" type="number" id="2_24h" onchange="calcTime();" onkeyup="calcTime();" value="0" min="0" /></td><td id="3_24h" class="calcColumn"></td><td id="4_24h" class="calcColumn"></td></tr>
+			<tr>
+				<td id="1_48h">48 hr.</td><td class="invCol"><input class="inputTimer" type="number" id="2_48h" onchange="calcTime();" onkeyup="calcTime();" value="0" min="0" /></td><td id="3_48h" class="calcColumn"></td><td id="4_48h" class="calcColumn"></td></tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td id="1_t">Totals:</td>
+				<td id="2_t" class="total">0 timers</td>
+				<td id="3_t" class="total">0 hours</td>
+				<td id="4_t" class="total">0 days</td>
+			</tr>
+			<tr>
+				<td colspan="4" class="resetBtn"><input type="button" value="Reset" onclick="resetCalc();" onkeyup="resetCalc();" /></td>
+			</tr>
+		</tfoot>
+		</tr>
+	</table>
+</body>
+</html>
