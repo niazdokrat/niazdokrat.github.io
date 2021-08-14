@@ -111,12 +111,14 @@ function resetCalc(){
 		<option value="taunter">Taunter</option>
 		<option value="trapper">Trapper</option>
 		</select>&nbsp; &nbsp; Primarch Attack Power:&nbsp;<input class="input_ap" id="prim_ap" type="number" onchange="calcTgt();" onkeyup="calcTgt();" /></p>
-		<table style="border-collapse: collapse; width: 100%; height: 102px;" border="1">
-			<tbody>
+		<table  class="minimalistBlack">
+			<thead>
 				<tr style="height: 17px;">
-					<td style="width: 50%; text-align: center; height: 17px;">Target Primarch Defense Power</td>
-					<td style="width: 50%; text-align: center; height: 17px;"># of Dragons To Use</td>
+					<th style="width: 50%; text-align: center; height: 17px;">Target Primarch Defense Power</th>
+					<th style="width: 50%; text-align: center; height: 17px;"># of Dragons To Use</th>
 				</tr>
+			</thead>
+			<tbody>
 				<tr style="height: 17px;">
 					<td style="width: 50%; height: 17px;" id="tgt_low">&nbsp;</td>
 					<td style="width: 50%; background-color: red; height: 17px; text-align: center;">DO NOT HIT</td>
