@@ -1,0 +1,146 @@
+<html>
+<head>
+<style>
+table.minimalistBlack {
+  border: 3px solid #000000;
+  background-color: #FFF7ED;
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+table.minimalistBlack td, table.minimalistBlack th {
+  border: 1px solid #000000;
+  padding: 5px 4px;
+}
+table.minimalistBlack tbody td {
+  font-size: 13px;
+}
+table.minimalistBlack tr:nth-child(even) {
+  background: #D0E4F5;
+}
+table.minimalistBlack thead {
+  background: #000000;
+  background: -moz-linear-gradient(top, #404040 0%, #191919 66%, #000000 100%);
+  background: -webkit-linear-gradient(top, #404040 0%, #191919 66%, #000000 100%);
+  background: linear-gradient(to bottom, #404040 0%, #191919 66%, #000000 100%);
+  border-bottom: 3px solid #000000;
+}
+table.minimalistBlack thead th {
+  font-size: 15px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: center;
+}
+table.minimalistBlack tfoot {
+  font-size: 14px;
+  font-weight: bold;
+  color: #000000;
+  border-top: 3px solid #000000;
+}
+table.minimalistBlack tfoot td {
+  font-size: 14px;
+}
+.calcColumn {
+	width: 50px;
+	color: #B22222;
+	font-weight: bold;
+	font-size: 15px;
+	text-align: center;
+}
+.inputTimer {
+	width: 70px;
+	align: center;
+}
+.timCol {
+	width:100px;
+}
+.invCol {
+	width: 120px;
+	text-align: center;
+	align: center;
+}
+.calcCol {
+	align: center;
+}
+.total {
+	text-align: center;
+}
+.resetBtn {
+	text-align: center;
+	align: center;
+}
+</style>
+<script type="text/javascript">
+function calcTgt(){
+
+	//convert all timers to minutes
+	var ap = document.getElementById("prim_ap").value; // Primarch Attack Power
+
+	var tgt_low = (0.89 * ap) -1;
+	var tgt_1 = 0.89 * ap;
+	var tgt_11 = 1.21 * ap;
+	var tgt_2 = tgt_11 + 1;
+	var tgt_22 = 1.85 * ap;
+	var tgt_3 = tgt_22 + 1;
+	var tgt_33 = 2.25 * ap;
+	var tgt_high = tgt_33 + 1;
+	
+	document.getElementById("tgt_low").innerHTML = "0 - " + tgt_low;
+	document.getElementById("tgt_1").innerHTML = tgt_1 + " - " + tgt_11;
+	document.getElementById("tgt_2").innerHTML = tgt_2 + " - " + tgt_22;
+	document.getElementById("tgt_3").innerHTML = tgt_3 + " - " + tgt_33;
+	document.getElementById("tgt_high").innerHTML = tgt_high + "+";
+	
+
+}
+
+function resetCalc(){
+	document.getElementById("prim_ap").value = 0;
+	document.getElementById("tgt_low").innerHTML = "";
+	document.getElementById("tgt_1").innerHTML = "";
+	document.getElementById("tgt_2").innerHTML = "";
+	document.getElementById("tgt_3").innerHTML = "";
+	document.getElementById("tgt_high").innerHTML = "";
+
+	calcTgt();
+}
+</script>
+</head>
+<body>
+	<p>Primarch:<select id="prim_type">
+		<option value="taunter">Taunter</option>
+		<option value="trapper">Trapper</option>
+		</select>&nbsp; &nbsp; Primarch Attack Power:&nbsp;<input class="input_ap" id="prim_ap" type="number" /></p>
+		<table style="border-collapse: collapse; width: 100%; height: 102px;" border="1">
+			<tbody>
+				<tr style="height: 17px;">
+					<td style="width: 50%; text-align: center; height: 17px;">Target Primarch Defense Power</td>
+					<td style="width: 50%; text-align: center; height: 17px;"># of Dragons To Use</td>
+				</tr>
+				<tr style="height: 17px;">
+					<td style="width: 50%; height: 17px;" id="tgt_low">&nbsp;</td>
+					<td style="width: 50%; background-color: red; height: 17px; text-align: center;">DO NOT HIT</td>
+				</tr>
+				<tr style="height: 17px;">
+					<td style="width: 50%; height: 17px;" id="tgt_1">&nbsp;</td>
+					<td style="width: 50%; height: 17px; text-align: center;">1</td>
+				</tr>
+				<tr style="height: 17px;">
+					<td style="width: 50%; height: 17px;" id="tgt_2">&nbsp;</td>
+					<td style="width: 50%; height: 17px; text-align: center;">2</td>
+				</tr>
+				<tr style="height: 17px;">
+					<td style="width: 50%; height: 17px;" id="tgt_3">&nbsp;</td>
+					<td style="width: 50%; height: 17px; text-align: center;">3</td>
+				</tr>
+				<tr style="height: 17px;">
+					<td style="width: 50%; height: 17px;" id="tgt_high">&nbsp;</td>
+					<td style="width: 50%; background-color: red; height: 17px; text-align: center;">DO NOT HIT</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="resetBtn"><input type="button" value="Reset" onclick="resetCalc();" onkeyup="resetCalc();" /></td>
+				</tr>
+			</tbody>
+		</table>
+</body>
+</html>
