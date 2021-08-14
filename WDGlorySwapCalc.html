@@ -110,7 +110,7 @@ function resetCalc(){
 	<p>Primarch:<select id="prim_type">
 		<option value="taunter">Taunter</option>
 		<option value="trapper">Trapper</option>
-		</select>&nbsp; &nbsp; Primarch Attack Power:&nbsp;<input class="input_ap" id="prim_ap" type="number" /></p>
+		</select>&nbsp; &nbsp; Primarch Attack Power:&nbsp;<input class="input_ap" id="prim_ap" type="number" onchange="calcTgt();" onkeyup="calcTgt();" /></p>
 		<table style="border-collapse: collapse; width: 100%; height: 102px;" border="1">
 			<tbody>
 				<tr style="height: 17px;">
