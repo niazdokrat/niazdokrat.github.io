@@ -69,6 +69,11 @@ table.minimalistBlack tfoot td {
 	text-align: center;
 	align: center;
 }
+.labels {
+	font-size: 14px;
+	font-weight: bold;
+	color: #000000;
+}
 </style>
 <script type="text/javascript">
 function calcTgt(){
@@ -107,10 +112,7 @@ function resetCalc(){
 </script>
 </head>
 <body>
-	<p>Primarch:<select id="prim_type">
-		<option value="taunter">Taunter</option>
-		<option value="trapper">Trapper</option>
-		</select>&nbsp; &nbsp; Primarch Attack Power:&nbsp;<input class="input_ap" id="prim_ap" type="number" onchange="calcTgt();" onkeyup="calcTgt();" /></p>
+	<p class="labels">Primarch AP:&nbsp;<input class="input_ap" id="prim_ap" type="number" onchange="calcTgt();" onkeyup="calcTgt();" /></p>
 		<table  class="minimalistBlack">
 			<thead>
 				<tr style="height: 17px;">
